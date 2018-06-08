@@ -1,4 +1,5 @@
 require "transaction_changes/version"
+require 'active_support/concern'
 
 module TransactionChanges
   extend ActiveSupport::Concern
