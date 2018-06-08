@@ -1,8 +1,6 @@
 # TransactionChanges
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/transaction_changes`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem stores attribute changes of a model during ActiveRecord Transaction so that they are available in an after_commit callbacks.
 
 ## Installation
 
@@ -22,7 +20,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class Profile < ActiveRecord::Base
+
+  after_commit :handle_callback
+  
+  include TransactionChanges
+
+  def handle_callback
+    puts transaction_changes
+  end
+end
+```
+
+## Important Notes
+
+`include TransactionChanges` should be written after all the after_commit callbacks
 
 ## Development
 
