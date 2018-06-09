@@ -29,8 +29,8 @@ module TransactionChanges
 
   def accumulate_changes
     @new_transaction_changes ||= HashWithIndifferentAccess.new
-
-    self.saved_changes.each do |key, value|
+    attribute_changes = ::ActiveRecord.version.to_s.to_f >= 5.1 ? self.saved_changes : self.changes
+    attribute_changes.each do |key, value|
       @new_transaction_changes[key] = value
     end
   end

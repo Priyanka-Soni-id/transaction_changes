@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     transaction_changes (2.0.1)
-      activerecord (>= 4.2.4, < 6.0)
+      activerecord
       activesupport
 
 GEM
