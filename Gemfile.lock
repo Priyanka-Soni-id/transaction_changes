@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    transaction_changes (2.1.2)
+    transaction_changes (2.2.1)
       activerecord
       activesupport
 

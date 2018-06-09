@@ -7,7 +7,7 @@ module TransactionChanges
   include ActiveSupport::Callbacks
 
   included do
-    after_save -> { accumulate_changes }
+    after_save :accumulate_changes 
     set_callback :commit, :before, :setting_variables
   end
 
