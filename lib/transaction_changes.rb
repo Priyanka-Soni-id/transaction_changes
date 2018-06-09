@@ -19,6 +19,12 @@ module TransactionChanges
     @old_transaction_changes || HashWithIndifferentAccess.new
   end
 
+  def _run_commit_callbacks
+    super
+  ensure
+    @old_transaction_changes = HashWithIndifferentAccess.new
+  end
+
   def _run_rollback_callbacks
     super
   ensure
