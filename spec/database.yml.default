@@ -1,0 +1,8 @@
+
+test:
+  adapter: mysql2
+  database: transaction_test
+  host: 127.0.0.1
+  encoding: utf8
+  username: root
+  password:
