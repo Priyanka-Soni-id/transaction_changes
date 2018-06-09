@@ -11,10 +11,6 @@ module TransactionChanges
     set_callback :commit, :before, :setting_variables
   end
 
-  def setting_variables
-    @new_transaction_changes, @old_transaction_changes = HashWithIndifferentAccess.new, @new_transaction_changes
-  end
-
   def transaction_changes
     @old_transaction_changes || HashWithIndifferentAccess.new
   end
@@ -32,6 +28,10 @@ module TransactionChanges
   end
 
   private
+
+  def setting_variables
+    @new_transaction_changes, @old_transaction_changes = HashWithIndifferentAccess.new, @new_transaction_changes
+  end
 
   def accumulate_changes
     @new_transaction_changes ||= HashWithIndifferentAccess.new
